@@ -26,7 +26,20 @@ function getSeries() {
 searchButton.addEventListener("click", getSeries);
 
 function paintResults() {
-  resultsList.innerHTML += `<li><h2>${seriesTitles}</h2><img src="${seriesImages}" alt="${seriesTitles}" title="${seriesTitles}" class="main__result-pic"></li>`;
+  let serieListElement = document.createElement("li");
+  let serieTitleElement = document.createElement("h2");
+  let serieImageElement = document.createElement("img");
+  let serieTitleContent = document.createTextNode(seriesTitles);
+  resultsList.appendChild(serieListElement);
+  serieListElement.appendChild(serieTitleElement);
+  serieListElement.appendChild(serieImageElement);
+  serieImageElement.src = seriesImages;
+  serieImageElement.title = seriesTitles;
+  serieImageElement.alt = seriesTitles;
+  serieImageElement.classList.add("main__result-pic");
+  serieTitleElement.appendChild(serieTitleContent);
+
+  // resultsList.innerHTML += `<li><h2>${seriesTitles}</h2><img src="${seriesImages}" alt="${seriesTitles}" title="${seriesTitles}" class="main__result-pic"></li>`;
 }
 
 //Prevents input-enter from refreshing the page and triggers click on button
