@@ -16,6 +16,8 @@ function getSeries() {
         seriesTitles = serie.show.name;
         if (serie.show.image !== null) {
           seriesImages = serie.show.image.original;
+        } else {
+          seriesImages = "../assets/images/imagealt.png";
         }
         console.log(seriesImages);
         paintResults();
