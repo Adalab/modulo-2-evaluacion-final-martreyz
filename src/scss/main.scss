@@ -5,3 +5,31 @@
 .selected {
   border: 4px aquamarine solid;
 }
+
+.main {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+}
+
+.main {
+  &__form {
+    grid-row: 1/2;
+  }
+  &__title-favourites {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  &__title-result {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+  &__favourites {
+    grid-column: 1/2;
+    grid-row: 3/4;
+  }
+  &__result {
+    grid-column: 2/3;
+    grid-row: 3/4;
+  }
+}

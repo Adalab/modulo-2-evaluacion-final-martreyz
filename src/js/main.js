@@ -5,6 +5,19 @@ const searchButton = document.querySelector(".js-button");
 const resultsList = document.querySelector(".js-resultsList");
 const favourites = document.querySelector(".js-favourites");
 
+const favouriteSeries = [];
+
+//Get favourites from localStorage if there is any:
+
+let favSeries;
+if (localStorage.getItem("favourite")) {
+  favSeries = JSON.parse(localStorage.getItem("favourite"));
+  for (const favSerie of favSeries) {
+    favouriteSeries.push(favSerie);
+  }
+  renderFavourites();
+}
+
 let seriesTitles;
 let seriesImages;
 function getSeries() {
@@ -29,7 +42,7 @@ searchButton.addEventListener("click", getSeries);
 
 function paintResults() {
   let serieListElement = document.createElement("li");
-  let serieTitleElement = document.createElement("h2");
+  let serieTitleElement = document.createElement("h3");
   let serieImageElement = document.createElement("img");
   let serieTitleContent = document.createTextNode(seriesTitles);
   resultsList.appendChild(serieListElement);
@@ -58,8 +71,6 @@ searchInput.addEventListener("keydown", changeEnterAction);
 
 //Favourites
 
-const favouriteSeries = [];
-
 function addToFavourites(event) {
   let favouriteSerie = event.currentTarget;
   favouriteSerie.classList.toggle("selected");
@@ -69,7 +80,15 @@ function addToFavourites(event) {
   } else {
     favouriteSeries.push(favouriteSerie.innerHTML);
   }
+  renderFavourites();
   localStorage.setItem("favourite", JSON.stringify(favouriteSeries));
+}
+
+function renderFavourites() {
+  favourites.innerHTML = "";
+  for (const item of favouriteSeries) {
+    favourites.innerHTML += item;
+  }
 }
 
 function listenResults() {
