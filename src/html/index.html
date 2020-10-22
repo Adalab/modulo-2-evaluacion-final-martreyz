@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Queveo: ¡Gestiona tus series!</title>
-    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
   </head>
   <body>
     <header class="header" role="heading">
@@ -14,14 +14,18 @@
       <form method="GET" class="main__form">
         <input
           type="text"
-          class="main__form-input"
+          class="main__form-input js-inputSearch"
           name="input"
           placeholder="Nombre de la serie"
         />
-        <input type="button" class="main__form-button" value="Buscar" />
+        <input
+          type="button"
+          class="main__form-button js-button"
+          value="Buscar"
+        />
       </form>
       <ul class="main__result"></ul>
     </main>
-    <script src="./js/main.js"></script>
+    <script src="./assets/js/main.js"></script>
   </body>
 </html>
