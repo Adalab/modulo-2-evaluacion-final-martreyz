@@ -28,3 +28,13 @@ searchButton.addEventListener("click", getSeries);
 function paintResults() {
   resultsList.innerHTML += `<li><h2>${seriesTitles}</h2><img src="${seriesImages}" alt="${seriesTitles}" title="${seriesTitles}" class="main__result-pic"></li>`;
 }
+
+//Prevents input-enter from refreshing the page and triggers click on button
+function changeEnterAction(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    searchButton.click();
+  }
+}
+
+searchInput.addEventListener("keydown", changeEnterAction);
