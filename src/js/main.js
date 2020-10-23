@@ -36,6 +36,7 @@ function cleanApiData(data) {
   for (const serie of data) {
     const serieInfo = {};
     serieInfo.name = serie.show.name;
+    serieInfo.id = serie.show.id;
     if (serie.show.image !== null) {
       serieInfo.image = serie.show.image.original;
     } else {
@@ -59,20 +60,22 @@ function renderResults() {
     serieListElement.classList.add("js-result-item");
     serieImageElement.classList.add("main__result-pic");
     serieListElement.id = i;
+    serieListElement.setAttribute("data", searchSeries[i].id);
     serieImageElement.src = searchSeries[i].image;
     serieImageElement.title = searchSeries[i].name;
     serieImageElement.alt = searchSeries[i].name;
     let serieTitleContent = document.createTextNode(searchSeries[i].name);
     serieTitleElement.appendChild(serieTitleContent);
     for (const serie of favouriteSeries) {
-      if (serie.image === searchSeries[i].image) {
+      if (serie.id === searchSeries[i].id) {
         serieListElement.classList.add("selected");
         serieListElement.classList.remove("js-result-item");
-        serieListElement.classList.add("js-resultInFavourites");
+        serieListElement.classList.add("js-resultFav-item");
       }
     }
   }
   listenResults();
+  listenFavResult();
 }
 
 //Prevents input-enter from refreshing the page and triggers click on button
@@ -157,14 +160,30 @@ function listenFavourites() {
   }
 }
 
-// function listenFavouritesInResults() {
-//   const favouriteItemsInResult = document.querySelectorAll(
-//     ".js-resultInFavourites"
-//   );
-//   for (const favouritesResultItem of favouriteItemsInResult) {
-//     favouritesResultItem.addEventListener("click", removeFromFavourites);
-//   }
-// }
+//Detele favourites from result
+
+function removeFavResult(event) {
+  let favResult = event.currentTarget;
+  let favResultID = favResult.getAttribute("data");
+  for (const serie of favouriteSeries) {
+    console.log(serie.id);
+    console.log(favResultID);
+    if (serie.id == favResultID) {
+      let favIndex = favouriteSeries.indexOf(serie);
+      favouriteSeries.splice(favIndex, 1);
+    }
+  }
+  saveInLocalStorage();
+  renderFavourites();
+  renderResults();
+}
+
+function listenFavResult() {
+  const favResult = document.querySelectorAll(".js-resultFav-item");
+  for (const fav of favResult) {
+    fav.addEventListener("click", removeFavResult);
+  }
+}
 
 //Delete all favourites
 
