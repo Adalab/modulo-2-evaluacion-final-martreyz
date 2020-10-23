@@ -44,7 +44,7 @@ function cleanApiData(data) {
     if (serie.show.image !== null) {
       serieInfo.image = serie.show.image.original;
     } else {
-      serieInfo.image = "../assets/images/imagealt.png";
+      serieInfo.image = "../assets/images/image.png";
     }
     searchSeries.push(serieInfo);
   }
@@ -53,6 +53,7 @@ function cleanApiData(data) {
 searchButton.addEventListener("click", getSeries);
 
 function renderResults() {
+  searchInput.value = "";
   resultsList.innerHTML = "";
   for (let i = 0; i < searchSeries.length; i++) {
     let serieListElement = document.createElement("li");
@@ -62,6 +63,8 @@ function renderResults() {
     serieListElement.appendChild(serieTitleElement);
     serieListElement.appendChild(serieImageElement);
     serieListElement.classList.add("js-result-item");
+    serieTitleElement.classList.add("main__result-title");
+    serieListElement.classList.add("main__result-item");
     serieImageElement.classList.add("main__result-pic");
     serieListElement.id = i;
     serieListElement.setAttribute("data", searchSeries[i].id);
@@ -118,13 +121,10 @@ function renderFavourites() {
     let serieListElement = document.createElement("li");
     let serieTitleElement = document.createElement("h3");
     let serieImageElement = document.createElement("img");
-    let serieStarElement = document.createElement("div");
     favourites.appendChild(serieListElement);
-    serieStarElement.classList.add("js-star");
-    serieStarElement.title = "Eliminar de favoritos";
     serieListElement.appendChild(serieTitleElement);
     serieListElement.appendChild(serieImageElement);
-    serieListElement.appendChild(serieStarElement);
+    serieTitleElement.classList.add("main__favourite-title");
     serieListElement.classList.add("js-favourite-item");
     serieListElement.classList.add("main__favourite-item");
     serieImageElement.classList.add("main__favourite-pic");
