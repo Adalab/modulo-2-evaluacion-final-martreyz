@@ -6,57 +6,63 @@ const resultsList = document.querySelector(".js-resultsList");
 const favourites = document.querySelector(".js-favourites");
 
 const favouriteSeries = [];
+let searchSeries = [];
 
 //Get favourites from localStorage if there is any:
 
-let favSeries;
-if (localStorage.getItem("favourite")) {
-  favSeries = JSON.parse(localStorage.getItem("favourite"));
-  for (const favSerie of favSeries) {
-    favouriteSeries.push(favSerie);
+function getAndRenderFavourites() {
+  if (localStorage.getItem("favourite")) {
+    let favSeries = JSON.parse(localStorage.getItem("favourite"));
+    for (const favSerie of favSeries) {
+      favouriteSeries.push(favSerie);
+    }
+    renderFavourites();
   }
-  renderFavourites();
 }
+getAndRenderFavourites();
 
-let seriesTitles;
-let seriesImages;
 function getSeries() {
+  searchSeries = [];
   resultsList.innerHTML = "";
   const searchInputValue = searchInput.value;
   fetch(`http://api.tvmaze.com/search/shows?q=${searchInputValue}`)
     .then((results) => results.json())
     .then((data) => {
       for (const serie of data) {
-        seriesTitles = serie.show.name;
+        const serieInfo = {};
+        serieInfo.name = serie.show.name;
         if (serie.show.image !== null) {
-          seriesImages = serie.show.image.original;
+          serieInfo.image = serie.show.image.original;
         } else {
-          seriesImages = "../assets/images/imagealt.png";
+          serieInfo.image = "../assets/images/imagealt.png";
         }
-        paintResults();
+        searchSeries.push(serieInfo);
       }
+      paintResults();
     });
 }
 
 searchButton.addEventListener("click", getSeries);
 
 function paintResults() {
-  let serieListElement = document.createElement("li");
-  let serieTitleElement = document.createElement("h3");
-  let serieImageElement = document.createElement("img");
-  let serieTitleContent = document.createTextNode(seriesTitles);
-  resultsList.appendChild(serieListElement);
-  serieListElement.appendChild(serieTitleElement);
-  serieListElement.appendChild(serieImageElement);
-  serieListElement.classList.add("js-result-item");
-  serieImageElement.src = seriesImages;
-  serieImageElement.title = seriesTitles;
-  serieImageElement.alt = seriesTitles;
-  serieImageElement.classList.add("main__result-pic");
-  serieTitleElement.appendChild(serieTitleContent);
+  for (let i = 0; i < searchSeries.length; i++) {
+    let serieListElement = document.createElement("li");
+    let serieTitleElement = document.createElement("h3");
+    let serieImageElement = document.createElement("img");
+    resultsList.appendChild(serieListElement);
+    serieListElement.appendChild(serieTitleElement);
+    serieListElement.appendChild(serieImageElement);
+    serieListElement.classList.add("js-result-item");
+    serieImageElement.classList.add("main__result-pic");
+    serieListElement.id = i;
+    serieImageElement.src = searchSeries[i].image;
+    serieImageElement.title = searchSeries[i].name;
+    serieImageElement.alt = searchSeries[i].name;
+    let serieTitleContent = document.createTextNode(searchSeries[i].name);
+    serieTitleElement.appendChild(serieTitleContent);
+  }
 
   listenResults();
-  // resultsList.innerHTML += `<li><h2>${seriesTitles}</h2><img src="${seriesImages}" alt="${seriesTitles}" title="${seriesTitles}" class="main__result-pic"></li>`;
 }
 
 //Prevents input-enter from refreshing the page and triggers click on button
@@ -69,16 +75,17 @@ function changeEnterAction(event) {
 
 searchInput.addEventListener("keydown", changeEnterAction);
 
-//Favourites
+//Favourites: Push elements set as favourite into the array to be saved in LocalStorage. Render the information into the page:
 
 function addToFavourites(event) {
   let favouriteSerie = event.currentTarget;
+  let favouriteSerieId = favouriteSerie.id;
   favouriteSerie.classList.toggle("selected");
-  if (favouriteSeries.indexOf(favouriteSerie.innerHTML) !== -1) {
-    let serieIndex = favouriteSeries.indexOf(favouriteSerie.innerHTML);
+  if (favouriteSeries.indexOf(searchSeries[favouriteSerieId]) !== -1) {
+    let serieIndex = favouriteSeries.indexOf(searchSeries[favouriteSerieId]);
     favouriteSeries.splice(serieIndex, 1);
   } else {
-    favouriteSeries.push(favouriteSerie.innerHTML);
+    favouriteSeries.push(searchSeries[favouriteSerieId]);
   }
   renderFavourites();
   localStorage.setItem("favourite", JSON.stringify(favouriteSeries));
@@ -87,7 +94,19 @@ function addToFavourites(event) {
 function renderFavourites() {
   favourites.innerHTML = "";
   for (const item of favouriteSeries) {
-    favourites.innerHTML += item;
+    let serieListElement = document.createElement("li");
+    let serieTitleElement = document.createElement("h3");
+    let serieImageElement = document.createElement("img");
+    favourites.appendChild(serieListElement);
+    serieListElement.appendChild(serieTitleElement);
+    serieListElement.appendChild(serieImageElement);
+    serieListElement.classList.add("js-favourite-item");
+    serieImageElement.classList.add("main__favourite-pic");
+    serieImageElement.src = item.image;
+    serieImageElement.title = item.name;
+    serieImageElement.alt = item.name;
+    let serieTitleContent = document.createTextNode(item.name);
+    serieTitleElement.appendChild(serieTitleContent);
   }
 }
 
