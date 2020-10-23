@@ -22,29 +22,38 @@
     border: 25px solid #2b4655;
     width: 50%;
     height: 300px;
+    background-color: #538099;
+    background-image: url(../images/tv-solid.svg);
+    background-size: 100px;
+    background-repeat: space;
     &-label {
       margin: 5px;
-      font-size: 70px;
+      font-size: 60px;
       font-weight: 600;
-      color: #64938d;
+      color: #c4e5d4;
     }
     &-input {
-      width: 200px;
+      width: 300px;
       height: 30px;
       margin: 0px 0px 10px 0px;
       outline: none;
       border-radius: 10px;
       border: none;
-      padding: 10px;
+      padding: 10px 10px 5px 10px;
+      font-size: 20px;
+      color: #2b4655;
+      &::placeholder {
+        font-size: 20px;
+      }
     }
     &-button {
-      width: 80px;
-      height: 30px;
+      width: 100px;
+      height: 50px;
       outline: none;
       border-radius: 15px;
-      border: none;
+      border: 2px solid #c4e5d4;
       background-color: #3e687e;
-      font-size: 18px;
+      font-size: 30px;
       padding: 5px;
       color: #c4e5d4;
       transition: ease 1s;
@@ -105,6 +114,10 @@
   background-size: 25px;
   background-position-x: center;
   background-position-y: 98%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .main__result-item {
