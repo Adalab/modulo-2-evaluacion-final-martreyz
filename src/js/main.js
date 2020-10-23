@@ -117,6 +117,7 @@ function renderFavourites() {
     let serieTitleContent = document.createTextNode(item.name);
     serieTitleElement.appendChild(serieTitleContent);
   }
+  listenFavourites();
 }
 
 function listenResults() {
@@ -125,3 +126,20 @@ function listenResults() {
     resultsItem.addEventListener("click", addToFavourites);
   }
 }
+
+//Delete series from favourites****
+
+// function removeFromFavourites(event) {
+//   let favouriteToRemove = event.currentTarget;
+//   let indexFavourite = favouriteSeries.indexOf(favouriteToRemove);
+//   favouriteSeries.splice(indexFavourite, 1);
+//   renderFavourites();
+//   renderResults();
+// }
+
+// function listenFavourites() {
+//   const favouriteListItems = document.querySelectorAll(".js-favourite-item");
+//   for (const favouritesItem of favouriteListItems) {
+//     favouritesItem.addEventListener("click", removeFromFavourites);
+//   }
+// }
