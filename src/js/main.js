@@ -23,28 +23,32 @@ getAndRenderFavourites();
 
 function getSeries() {
   searchSeries = [];
-  resultsList.innerHTML = "";
   const searchInputValue = searchInput.value;
   fetch(`http://api.tvmaze.com/search/shows?q=${searchInputValue}`)
     .then((results) => results.json())
     .then((data) => {
-      for (const serie of data) {
-        const serieInfo = {};
-        serieInfo.name = serie.show.name;
-        if (serie.show.image !== null) {
-          serieInfo.image = serie.show.image.original;
-        } else {
-          serieInfo.image = "../assets/images/imagealt.png";
-        }
-        searchSeries.push(serieInfo);
-      }
-      paintResults();
+      cleanApiData(data);
+      renderResults();
     });
+}
+
+function cleanApiData(data) {
+  for (const serie of data) {
+    const serieInfo = {};
+    serieInfo.name = serie.show.name;
+    if (serie.show.image !== null) {
+      serieInfo.image = serie.show.image.original;
+    } else {
+      serieInfo.image = "../assets/images/imagealt.png";
+    }
+    searchSeries.push(serieInfo);
+  }
 }
 
 searchButton.addEventListener("click", getSeries);
 
-function paintResults() {
+function renderResults() {
+  resultsList.innerHTML = "";
   for (let i = 0; i < searchSeries.length; i++) {
     let serieListElement = document.createElement("li");
     let serieTitleElement = document.createElement("h3");
@@ -60,8 +64,13 @@ function paintResults() {
     serieImageElement.alt = searchSeries[i].name;
     let serieTitleContent = document.createTextNode(searchSeries[i].name);
     serieTitleElement.appendChild(serieTitleContent);
+    for (const serie of favouriteSeries) {
+      if (serie.image === searchSeries[i].image) {
+        serieListElement.classList.add("selected");
+        serieListElement.classList.remove("js-result-item");
+      }
+    }
   }
-
   listenResults();
 }
 
@@ -80,13 +89,13 @@ searchInput.addEventListener("keydown", changeEnterAction);
 function addToFavourites(event) {
   let favouriteSerie = event.currentTarget;
   let favouriteSerieId = favouriteSerie.id;
-  favouriteSerie.classList.toggle("selected");
   if (favouriteSeries.indexOf(searchSeries[favouriteSerieId]) !== -1) {
     let serieIndex = favouriteSeries.indexOf(searchSeries[favouriteSerieId]);
     favouriteSeries.splice(serieIndex, 1);
   } else {
     favouriteSeries.push(searchSeries[favouriteSerieId]);
   }
+  renderResults();
   renderFavourites();
   localStorage.setItem("favourite", JSON.stringify(favouriteSeries));
 }
