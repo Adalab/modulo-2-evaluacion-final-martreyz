@@ -5,7 +5,7 @@ const searchButton = document.querySelector(".js-button");
 const resultsList = document.querySelector(".js-resultsList");
 const favourites = document.querySelector(".js-favourites");
 
-const favouriteSeries = [];
+let favouriteSeries = [];
 let searchSeries = [];
 
 //Get favourites from localStorage if there is any:
@@ -68,6 +68,7 @@ function renderResults() {
       if (serie.image === searchSeries[i].image) {
         serieListElement.classList.add("selected");
         serieListElement.classList.remove("js-result-item");
+        serieListElement.classList.add("js-resultInFavourites");
       }
     }
   }
@@ -97,26 +98,37 @@ function addToFavourites(event) {
   }
   renderResults();
   renderFavourites();
+  saveInLocalStorage();
+}
+
+function saveInLocalStorage() {
   localStorage.setItem("favourite", JSON.stringify(favouriteSeries));
 }
 
 function renderFavourites() {
   favourites.innerHTML = "";
-  for (const item of favouriteSeries) {
+  for (let i = 0; i < favouriteSeries.length; i++) {
     let serieListElement = document.createElement("li");
     let serieTitleElement = document.createElement("h3");
     let serieImageElement = document.createElement("img");
+    let serieStarElement = document.createElement("div");
     favourites.appendChild(serieListElement);
+    serieStarElement.classList.add("js-star");
+    serieStarElement.title = "Eliminar de favoritos";
     serieListElement.appendChild(serieTitleElement);
     serieListElement.appendChild(serieImageElement);
+    serieListElement.appendChild(serieStarElement);
     serieListElement.classList.add("js-favourite-item");
+    serieListElement.classList.add("main__favourite-item");
     serieImageElement.classList.add("main__favourite-pic");
-    serieImageElement.src = item.image;
-    serieImageElement.title = item.name;
-    serieImageElement.alt = item.name;
-    let serieTitleContent = document.createTextNode(item.name);
+    serieListElement.id = i;
+    serieImageElement.src = favouriteSeries[i].image;
+    serieImageElement.title = favouriteSeries[i].name;
+    serieImageElement.alt = favouriteSeries[i].name;
+    let serieTitleContent = document.createTextNode(favouriteSeries[i].name);
     serieTitleElement.appendChild(serieTitleContent);
   }
+
   listenFavourites();
 }
 
@@ -126,3 +138,32 @@ function listenResults() {
     resultsItem.addEventListener("click", addToFavourites);
   }
 }
+
+//Delete series from favourites (render and localStorage replacement)
+
+function removeFromFavourites(event) {
+  let favouriteToRemove = event.currentTarget;
+  let indexFavourite = favouriteToRemove.id;
+  favouriteSeries.splice(indexFavourite, 1);
+  saveInLocalStorage();
+  renderFavourites();
+  renderResults();
+}
+
+function listenFavourites() {
+  const favouriteListItems = document.querySelectorAll(".js-favourite-item");
+  for (const favouritesItem of favouriteListItems) {
+    favouritesItem.addEventListener("click", removeFromFavourites);
+  }
+}
+
+const clearAllFav = document.querySelector(".js-clearFavourites");
+
+function clearFavourites() {
+  favouriteSeries = [];
+  saveInLocalStorage();
+  renderFavourites();
+  renderResults();
+}
+
+clearAllFav.addEventListener("click", clearFavourites);
