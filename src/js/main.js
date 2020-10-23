@@ -5,10 +5,12 @@ const searchButton = document.querySelector(".js-button");
 const resultsList = document.querySelector(".js-resultsList");
 const favourites = document.querySelector(".js-favourites");
 
+//Declare empty arrays to manage results and favourites:
+
 let favouriteSeries = [];
 let searchSeries = [];
 
-//Get favourites from localStorage if there is any:
+//Get favourites from localStorage in case of existing:
 
 function getAndRenderFavourites() {
   if (localStorage.getItem("favourite")) {
@@ -20,6 +22,8 @@ function getAndRenderFavourites() {
   }
 }
 getAndRenderFavourites();
+
+//Get info from API and clean the result and render the result:
 
 function getSeries() {
   searchSeries = [];
@@ -131,7 +135,6 @@ function renderFavourites() {
     let serieTitleContent = document.createTextNode(favouriteSeries[i].name);
     serieTitleElement.appendChild(serieTitleContent);
   }
-
   listenFavourites();
 }
 
