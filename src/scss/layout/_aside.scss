@@ -19,6 +19,8 @@
       display: flex;
       justify-content: space-evenly;
       flex-wrap: wrap;
+      height: 70vh;
+      overflow: hidden;
     }
     &-close {
       width: 25px;
@@ -37,11 +39,29 @@
         transform: scale(1.2);
       }
     }
+    &-more {
+      display: block;
+      position: absolute;
+      right: 40px;
+      width: 50px;
+      margin: 15px 0px 0px 0px;
+      border-radius: 15px;
+      border: none;
+      background-color: #c4e5d4;
+      font-size: 30px;
+      line-height: 18px;
+      outline: none;
+      transition: ease 1s;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
     &-clear {
       color: #c4e5d4;
       background-color: #538099;
       border-radius: 5px;
       border: 2px solid #c4e5d4;
+      margin: 50px 0px 0px 0px;
       height: 25px;
       width: auto;
       min-width: 150px;
@@ -90,4 +110,9 @@
       }
     }
   }
+}
+
+.js-showMore {
+  height: auto;
+  overflow: visible;
 }

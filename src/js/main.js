@@ -217,6 +217,7 @@ searchInput.addEventListener("click", showBigTV);
 const closeFavs = document.querySelector(".js-closeFav");
 const asideFavs = document.querySelector(".js-aside");
 const openFavs = document.querySelector(".js-favButton");
+const moreButton = document.querySelector(".js-moreButton");
 
 function closeAsideFav() {
   asideFavs.classList.add("js-hidden");
@@ -229,3 +230,14 @@ function openAsideFav() {
 }
 
 openFavs.addEventListener("click", openAsideFav);
+
+function showMoreFavs() {
+  favourites.classList.toggle("js-showMore");
+  if (favourites.classList.contains("js-showMore")) {
+    moreButton.title = "Mostrar menos favoritos";
+  } else {
+    moreButton.title = "Mostrar todos los favoritos";
+  }
+}
+
+moreButton.addEventListener("click", showMoreFavs);
