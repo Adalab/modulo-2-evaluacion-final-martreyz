@@ -89,6 +89,7 @@ function renderResults() {
       }
     }
   }
+  window.scroll(0, 600);
   listenResults();
   listenFavResult();
 }
