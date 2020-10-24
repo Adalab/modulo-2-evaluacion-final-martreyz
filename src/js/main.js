@@ -207,8 +207,6 @@ clearAllFav.addEventListener("click", clearFavourites);
 //Funcions for decorative purposes:
 
 function showBigTV() {
-  mainForm.classList.remove("js-showResults");
-  mainFormLabel.classList.remove("js-showResults");
   resultsContainer.classList.add("js-hidden");
 }
 

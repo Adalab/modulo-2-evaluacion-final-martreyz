@@ -139,6 +139,7 @@
       position: absolute;
       right: 10px;
       transition: ease 1s;
+      outline: none;
       &:hover {
         transform: scale(1.2);
       }
