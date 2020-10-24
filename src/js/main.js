@@ -61,14 +61,18 @@ function renderResults() {
     let serieListElement = document.createElement("li");
     let serieTitleElement = document.createElement("h3");
     let serieImageElement = document.createElement("img");
+    let serieButtonElement = document.createElement("button");
     resultsList.appendChild(serieListElement);
     serieListElement.appendChild(serieTitleElement);
     serieListElement.appendChild(serieImageElement);
+    serieListElement.appendChild(serieButtonElement);
     serieListElement.classList.add("js-result-item");
     serieTitleElement.classList.add("main__result-item-title");
     serieListElement.classList.add("main__result-item");
     serieImageElement.classList.add("main__result-item-pic");
+    serieButtonElement.classList.add("main__result-item-button");
     serieListElement.id = i;
+    serieButtonElement.title = "Añadir a favoritos";
     serieListElement.setAttribute("data", searchSeries[i].id);
     serieImageElement.src = searchSeries[i].image;
     serieImageElement.title = searchSeries[i].name;
@@ -77,6 +81,8 @@ function renderResults() {
     serieTitleElement.appendChild(serieTitleContent);
     for (const serie of favouriteSeries) {
       if (serie.id === searchSeries[i].id) {
+        serieButtonElement.title = "Eliminar de favoritos";
+        serieButtonElement.classList.add("js-selectedButton");
         serieListElement.classList.add("js-selected");
         serieListElement.classList.remove("js-result-item");
         serieListElement.classList.add("js-resultFav-item");
@@ -123,20 +129,26 @@ function renderFavourites() {
     let serieListElement = document.createElement("li");
     let serieTitleElement = document.createElement("h3");
     let serieImageElement = document.createElement("img");
+    let serieButtonElement = document.createElement("button");
     favourites.appendChild(serieListElement);
     serieListElement.appendChild(serieTitleElement);
     serieListElement.appendChild(serieImageElement);
+    serieListElement.appendChild(serieButtonElement);
     serieTitleElement.classList.add("aside__favourites-item-title");
     serieListElement.classList.add("js-favourite-item");
     serieListElement.classList.add("aside__favourites-item");
     serieImageElement.classList.add("aside__favourites-item-pic");
+    serieButtonElement.classList.add("aside__favourites-item-button");
     serieListElement.id = i;
-    serieListElement.title = "Eliminar de favoritos";
+    serieButtonElement.title = "Eliminar de favoritos";
     serieImageElement.src = favouriteSeries[i].image;
     serieImageElement.title = favouriteSeries[i].name;
     serieImageElement.alt = favouriteSeries[i].name;
     let serieTitleContent = document.createTextNode(favouriteSeries[i].name);
     serieTitleElement.appendChild(serieTitleContent);
+  }
+  if (favouriteSeries.length <= 2) {
+    favourites.classList.add("js-showMore");
   }
   listenFavourites();
 }
@@ -230,6 +242,8 @@ function openAsideFav() {
 }
 
 openFavs.addEventListener("click", openAsideFav);
+
+//Collapse favourites list for esthetic purposes:
 
 function showMoreFavs() {
   favourites.classList.toggle("js-showMore");

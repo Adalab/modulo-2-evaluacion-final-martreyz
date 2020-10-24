@@ -34,8 +34,10 @@ body {
     border-bottom-right-radius: 50% 2%;
     border: 25px solid #2b4655;
     border-right: 70px solid #2b4655;
-    width: 470px;
-    height: 300px;
+    max-width: 470px;
+    width: 90vw;
+    min-height: 300px;
+    height: auto;
     background-color: #538099;
     background-image: url(../images/tv-solid.svg);
     background-size: 100px;
@@ -48,7 +50,8 @@ body {
       color: #c4e5d4;
     }
     &-input {
-      width: 300px;
+      max-width: 300px;
+      width: 80%;
       height: 30px;
       margin: 0px 0px 10px 0px;
       outline: none;
@@ -131,6 +134,7 @@ body {
     &-item {
       margin: 15px 10px 15px 0px;
       width: 130px;
+      height: 240px;
       border-radius: 15px;
       border: 2px solid #64938d;
       background-color: #3e687e;
@@ -143,11 +147,7 @@ body {
       list-style-type: none;
       text-align: center;
       position: relative;
-      background-image: url(../images/star-regular.svg);
-      background-repeat: no-repeat;
-      background-size: 25px;
-      background-position-x: center;
-      background-position-y: 98%;
+
       &-pic {
         max-width: 100px;
         width: auto;
@@ -155,6 +155,23 @@ body {
       }
       &-title {
         margin: auto 0px;
+      }
+      &-button {
+        width: 25px;
+        height: 25px;
+        background-color: transparent;
+        background-image: url(../images/star-regular.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 25px;
+        position: absolute;
+        border: none;
+        bottom: 5px;
+        transition: ease 1s;
+        outline: none;
+        &:hover {
+          transform: scale(1.2);
+        }
       }
     }
   }
@@ -170,11 +187,10 @@ body {
   padding: 10px 10px 33px 10px;
   list-style-type: none;
   text-align: center;
+}
+
+.js-selectedButton {
   background-image: url(../images/star-solid.svg);
-  background-repeat: no-repeat;
-  background-size: 25px;
-  background-position-x: center;
-  background-position-y: 98%;
 }
 
 .js-hidden {
