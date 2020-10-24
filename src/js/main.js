@@ -211,3 +211,21 @@ function showBigTV() {
 }
 
 searchInput.addEventListener("click", showBigTV);
+
+//Navigation:
+
+const closeFavs = document.querySelector(".js-closeFav");
+const asideFavs = document.querySelector(".js-aside");
+const openFavs = document.querySelector(".js-favButton");
+
+function closeAsideFav() {
+  asideFavs.classList.add("js-hidden");
+}
+
+closeFavs.addEventListener("click", closeAsideFav);
+
+function openAsideFav() {
+  asideFavs.classList.remove("js-hidden");
+}
+
+openFavs.addEventListener("click", openAsideFav);

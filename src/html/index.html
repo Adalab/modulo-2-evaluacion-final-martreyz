@@ -34,12 +34,12 @@
           <input
             type="button"
             title="Abrir favoritos"
-            class="main__section-form-button--favs"
+            class="main__section-form-button--favs js-favButton"
           />
           <input
             type="button"
             title="Cambiar tema de la página"
-            class="main__section-form-button--themes"
+            class="main__section-form-button--themes js-themeButton"
           />
         </form>
       </section>
@@ -48,8 +48,11 @@
         <ul class="main__result-list js-resultsList"></ul>
       </section>
     </main>
-    <aside class="aside__favourites">
-      <button title="Cerrar favoritos" class="aside__favourites-close"></button>
+    <aside class="aside__favourites js-aside">
+      <button
+        title="Cerrar favoritos"
+        class="aside__favourites-close js-closeFav"
+      ></button>
       <h2 class="aside__favourites-title">Series favoritas</h2>
 
       <ul class="aside__favourites-list js-favourites"></ul>
