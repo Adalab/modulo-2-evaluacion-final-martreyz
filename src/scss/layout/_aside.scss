@@ -1,0 +1,87 @@
+.aside {
+  &__favourites {
+    background-color: #2b4655;
+    padding: 10px 30px 10px 30px;
+    height: auto;
+    min-height: 100vh;
+    order: -1;
+    width: 40%;
+    position: relative;
+    &-title {
+      font-size: 50px;
+      margin: auto 0px auto 0px;
+      color: #c4e5d4;
+    }
+    &-list {
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+    }
+    &-close {
+      width: 25px;
+      height: 25px;
+      background-color: #2b4655;
+      background-image: url(../images/times-solid.svg);
+      background-repeat: no-repeat;
+      background-size: 20px;
+      background-position: center;
+      border: none;
+      position: absolute;
+      right: 10px;
+      transition: ease 1s;
+      outline: none;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+    &-clear {
+      color: #c4e5d4;
+      background-color: #538099;
+      border-radius: 5px;
+      border: none;
+      height: 25px;
+      width: auto;
+      min-width: 150px;
+      line-height: auto;
+      background-image: url(../images/minus-circle-solid.svg);
+      background-repeat: no-repeat;
+      background-size: 20px;
+      background-position-y: 2.5px;
+      background-position-x: 2.5px;
+      padding: 0px 0px 0px 25px;
+      outline: none;
+      transition: all ease 1s;
+      &:hover {
+        background-color: #c4e5d4;
+        color: #2b4655;
+        transform: scale(1.1);
+      }
+    }
+    &-item {
+      margin: 15px 10px 15px 0px;
+      width: 130px;
+      border-radius: 15px;
+      border: 2px solid #64938d;
+      background-color: #64938d;
+      color: #2d4d5e;
+      padding: 10px 10px 33px 10px;
+      list-style-type: none;
+      text-align: center;
+      position: relative;
+      background-image: url(../images/star-solid.svg);
+      background-repeat: no-repeat;
+      background-size: 25px;
+      background-position-x: center;
+      background-position-y: 98%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      &-pic {
+        max-width: 100px;
+        width: auto;
+        height: 150px;
+      }
+    }
+  }
+}
