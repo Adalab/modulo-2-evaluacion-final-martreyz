@@ -65,9 +65,9 @@ function renderResults() {
     serieListElement.appendChild(serieTitleElement);
     serieListElement.appendChild(serieImageElement);
     serieListElement.classList.add("js-result-item");
-    serieTitleElement.classList.add("main__result-title");
+    serieTitleElement.classList.add("main__result-item-title");
     serieListElement.classList.add("main__result-item");
-    serieImageElement.classList.add("main__result-pic");
+    serieImageElement.classList.add("main__result-item-pic");
     serieListElement.id = i;
     serieListElement.setAttribute("data", searchSeries[i].id);
     serieImageElement.src = searchSeries[i].image;
@@ -77,7 +77,7 @@ function renderResults() {
     serieTitleElement.appendChild(serieTitleContent);
     for (const serie of favouriteSeries) {
       if (serie.id === searchSeries[i].id) {
-        serieListElement.classList.add("selected");
+        serieListElement.classList.add("js-selected");
         serieListElement.classList.remove("js-result-item");
         serieListElement.classList.add("js-resultFav-item");
       }
@@ -126,10 +126,10 @@ function renderFavourites() {
     favourites.appendChild(serieListElement);
     serieListElement.appendChild(serieTitleElement);
     serieListElement.appendChild(serieImageElement);
-    serieTitleElement.classList.add("main__favourite-title");
+    serieTitleElement.classList.add("aside__favourites-item-title");
     serieListElement.classList.add("js-favourite-item");
-    serieListElement.classList.add("main__favourite-item");
-    serieImageElement.classList.add("main__favourite-pic");
+    serieListElement.classList.add("aside__favourites-item");
+    serieImageElement.classList.add("aside__favourites-item-pic");
     serieListElement.id = i;
     serieListElement.title = "Eliminar de favoritos";
     serieImageElement.src = favouriteSeries[i].image;

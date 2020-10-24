@@ -12,15 +12,15 @@
   </head>
   <body>
     <main class="main">
-      <section class="main__section-form">
-        <form method="GET" class="main__form">
-          <label class="main__form-label" for="headerTitle"
+      <section class="main__section">
+        <form method="GET" class="main__section-form">
+          <label class="main__section-form-label" for="headerTitle"
             >Buscador de series
           </label>
           <input
             id="headerTitle"
             type="text"
-            class="main__form-input js-inputSearch"
+            class="main__section-form-input js-inputSearch"
             name="input"
             placeholder="Nombre de la serie"
           />
@@ -28,34 +28,34 @@
           <input
             title="Buscar"
             type="button"
-            class="main__form-button js-button"
+            class="main__section-form-button js-button"
             value="Buscar"
           />
           <input
             type="button"
             title="Abrir favoritos"
-            class="main__form-button--favs"
+            class="main__section-form-button--favs"
           />
           <input
             type="button"
             title="Cambiar tema de la página"
-            class="main__form-button--themes"
+            class="main__section-form-button--themes"
           />
         </form>
       </section>
       <section class="js-hidden main__result js-resultsContainer">
-        <h2 class="main__title-result">Resultados</h2>
+        <h2 class="main__result-title">Resultados</h2>
         <ul class="main__result-list js-resultsList"></ul>
       </section>
     </main>
-    <aside class="main__favourites">
-      <button title="Cerrar favoritos" class="main__favourites-close"></button>
-      <h2 class="main__title-favourites">Series favoritas</h2>
+    <aside class="aside__favourites">
+      <button title="Cerrar favoritos" class="aside__favourites-close"></button>
+      <h2 class="aside__favourites-title">Series favoritas</h2>
 
-      <ul class="main__favourites-list js-favourites"></ul>
+      <ul class="aside__favourites-list js-favourites"></ul>
       <button
         title="Borrar todos los favoritos"
-        class="js-clearFavourites main__favourites-clear"
+        class="js-clearFavourites aside__favourites-clear"
       >
         Borrar todos los favoritos
       </button>
