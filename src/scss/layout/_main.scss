@@ -6,13 +6,14 @@
 }
 
 .main {
-  background-color: #c4e5d4;
   width: 100%;
   height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0px 20px;
   &__form {
     display: flex;
     flex-direction: column;
@@ -22,12 +23,14 @@
     border-bottom-left-radius: 50% 2%;
     border-bottom-right-radius: 50% 2%;
     border: 25px solid #2b4655;
+    border-right: 70px solid #2b4655;
     width: 470px;
     height: 300px;
     background-color: #538099;
     background-image: url(../images/tv-solid.svg);
     background-size: 100px;
     background-repeat: space;
+    position: relative;
     &-label {
       margin: 5px;
       font-size: 60px;
@@ -62,9 +65,46 @@
       &:hover {
         transform: scale(1.2);
       }
+      &--favs {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        border: 2px #3e687e dotted;
+        position: absolute;
+        right: -55px;
+        top: 10px;
+        background-color: lightgray;
+        background-image: url(../images/favs.svg);
+        background-size: 30px;
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: transform ease 2s;
+        &:hover {
+          transform: rotate(360deg);
+        }
+      }
+      &--themes {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        border: 2px #3e687e dotted;
+        position: absolute;
+        right: -55px;
+        top: 60px;
+        background-color: lightgray;
+        background-image: url(../images/cog-solid.svg);
+        background-size: 30px;
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: transform ease 2s;
+        &:hover {
+          transform: rotate(360deg);
+        }
+      }
     }
   }
   &__result {
+    height: auto;
     &-list {
       display: flex;
       flex-wrap: wrap;
@@ -75,22 +115,59 @@
     background-color: #3e687e;
     padding: 10px 30px 10px 30px;
     height: auto;
-    width: auto;
+    min-height: 100vh;
     order: -1;
-    max-width: 30%;
+    width: 40%;
+    position: relative;
     &-list {
       display: flex;
       justify-content: space-evenly;
       flex-wrap: wrap;
     }
+    &-close {
+      width: 25px;
+      height: 25px;
+      background-color: #3e687e;
+      background-image: url(../images/times-solid.svg);
+      background-repeat: no-repeat;
+      background-size: 20px;
+      background-position: center;
+      border: none;
+      position: absolute;
+      right: 10px;
+      transition: ease 1s;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
     &-clear {
-      color: #e9d09a;
+      color: #c4e5d4;
+      background-color: #2b4655;
+      border-radius: 5px;
+      border: none;
+      height: 25px;
+      width: auto;
+      min-width: 150px;
+      line-height: auto;
+      background-image: url(../images/minus-circle-solid.svg);
+      background-repeat: no-repeat;
+      background-size: 20px;
+      background-position-y: 2.5px;
+      background-position-x: 2.5px;
+      padding: 0px 0px 0px 25px;
+      outline: none;
+      transition: all ease 1s;
+      &:hover {
+        background-color: #c4e5d4;
+        color: #2b4655;
+        transform: scale(1.1);
+      }
     }
   }
   &__title-favourites {
     font-size: 50px;
     margin: 10px 0px 0px 0px;
-    color: #e9d09a;
+    color: #c4e5d4;
   }
   &__title-result {
     font-size: 30px;
@@ -148,14 +225,6 @@
   margin: auto 0px auto 0px;
 }
 
-.main__favourites-clear {
-  width: auto;
-  min-width: 150px;
-  background-image: url(../images/minus-circle-solid.svg);
-  background-repeat: no-repeat;
-  padding: 0px 0px 0px 25px;
-}
-
 .selected {
   margin: 15px 10px 15px 0px;
   width: 130px;
@@ -176,36 +245,9 @@
 .main__section-form {
   display: flex;
   justify-content: center;
-  align-items: center;
   width: 100%;
-}
-
-.form-tvfoot {
-  width: 20px;
-  height: 70px;
-  margin-top: -20px;
-  background-color: #2b4655;
-  border: solid 3px#2b4655;
-  border-radius: 48px;
-  transform: rotate(-30deg);
-  float: right;
-  position: relative;
-  top: 170px;
-  right: 50px;
-}
-
-.form-tvfootleft {
-  width: 20px;
-  height: 70px;
-  margin-top: -20px;
-  background-color: #2b4655;
-  border: solid 3px#2b4655;
-  border-radius: 48px;
-  transform: rotate(30deg);
-  float: left;
-  position: relative;
-  top: 170px;
-  right: 450px;
+  height: auto;
+  padding: 50px 0px;
 }
 
 .js-hidden {

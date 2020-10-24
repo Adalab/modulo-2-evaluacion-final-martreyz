@@ -4,6 +4,7 @@ const searchInput = document.querySelector(".js-inputSearch");
 const searchButton = document.querySelector(".js-button");
 const resultsList = document.querySelector(".js-resultsList");
 const favourites = document.querySelector(".js-favourites");
+const resultsContainer = document.querySelector(".js-resultsContainer");
 
 //Declare empty arrays to manage results and favourites:
 
@@ -53,6 +54,7 @@ function cleanApiData(data) {
 searchButton.addEventListener("click", getSeries);
 
 function renderResults() {
+  resultsContainer.classList.remove("js-hidden");
   searchInput.value = "";
   resultsList.innerHTML = "";
   for (let i = 0; i < searchSeries.length; i++) {
@@ -129,6 +131,7 @@ function renderFavourites() {
     serieListElement.classList.add("main__favourite-item");
     serieImageElement.classList.add("main__favourite-pic");
     serieListElement.id = i;
+    serieListElement.title = "Eliminar de favoritos";
     serieImageElement.src = favouriteSeries[i].image;
     serieImageElement.title = favouriteSeries[i].name;
     serieImageElement.alt = favouriteSeries[i].name;
@@ -200,3 +203,13 @@ function clearFavourites() {
 }
 
 clearAllFav.addEventListener("click", clearFavourites);
+
+//Funcions for decorative purposes:
+
+function showBigTV() {
+  mainForm.classList.remove("js-showResults");
+  mainFormLabel.classList.remove("js-showResults");
+  resultsContainer.classList.add("js-hidden");
+}
+
+searchInput.addEventListener("click", showBigTV);

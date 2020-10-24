@@ -31,24 +31,34 @@
             class="main__form-button js-button"
             value="Buscar"
           />
+          <input
+            type="button"
+            title="Abrir favoritos"
+            class="main__form-button--favs"
+          />
+          <input
+            type="button"
+            title="Cambiar tema de la página"
+            class="main__form-button--themes"
+          />
         </form>
-        <div aria-label="Decorative" class="form-tvfoot"></div>
-        <div aria-label="Decorative" class="form-tvfootleft"></div>
       </section>
-      <section class="js-hidden main__result">
+      <section class="js-hidden main__result js-resultsContainer">
         <h2 class="main__title-result">Resultados</h2>
         <ul class="main__result-list js-resultsList"></ul>
       </section>
     </main>
     <aside class="main__favourites">
+      <button title="Cerrar favoritos" class="main__favourites-close"></button>
       <h2 class="main__title-favourites">Series favoritas</h2>
+
       <ul class="main__favourites-list js-favourites"></ul>
-      <div
+      <button
         title="Borrar todos los favoritos"
         class="js-clearFavourites main__favourites-clear"
       >
         Borrar todos los favoritos
-      </div>
+      </button>
     </aside>
 
     <script src="./assets/js/main.js"></script>
