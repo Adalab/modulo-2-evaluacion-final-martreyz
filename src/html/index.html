@@ -32,24 +32,25 @@
             value="Buscar"
           />
         </form>
-        <div class="form-tvfoot"></div>
-        <div class="form-tvfootleft"></div>
+        <div aria-label="Decorative" class="form-tvfoot"></div>
+        <div aria-label="Decorative" class="form-tvfootleft"></div>
       </section>
-      <section class="main__favourites">
-        <h2 class="main__title-favourites">Series favoritas</h2>
-        <ul class="main__favourites-list js-favourites"></ul>
-        <div
-          title="Borrar todos los favoritos"
-          class="js-clearFavourites main__favourites-clear"
-        >
-          Borrar todos los favoritos
-        </div>
-      </section>
-      <section class="main__result">
+      <section class="js-hidden main__result">
         <h2 class="main__title-result">Resultados</h2>
         <ul class="main__result-list js-resultsList"></ul>
       </section>
     </main>
+    <aside class="main__favourites">
+      <h2 class="main__title-favourites">Series favoritas</h2>
+      <ul class="main__favourites-list js-favourites"></ul>
+      <div
+        title="Borrar todos los favoritos"
+        class="js-clearFavourites main__favourites-clear"
+      >
+        Borrar todos los favoritos
+      </div>
+    </aside>
+
     <script src="./assets/js/main.js"></script>
   </body>
 </html>

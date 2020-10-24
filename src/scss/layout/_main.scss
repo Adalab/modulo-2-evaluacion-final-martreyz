@@ -6,12 +6,14 @@
 }
 
 .main {
-  display: grid;
-  grid-template-columns: 28% 70%;
-  grid-template-rows: auto;
   background-color: #c4e5d4;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   &__form {
-    grid-column: 2/3;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,7 +22,7 @@
     border-bottom-left-radius: 50% 2%;
     border-bottom-right-radius: 50% 2%;
     border: 25px solid #2b4655;
-    width: 50%;
+    width: 470px;
     height: 300px;
     background-color: #538099;
     background-image: url(../images/tv-solid.svg);
@@ -63,7 +65,6 @@
     }
   }
   &__result {
-    grid-column: 2/3;
     &-list {
       display: flex;
       flex-wrap: wrap;
@@ -71,12 +72,12 @@
     }
   }
   &__favourites {
-    grid-column: 1/2;
-    grid-row: 1/3;
     background-color: #3e687e;
     padding: 10px 30px 10px 30px;
-    height: 100%;
+    height: auto;
     width: auto;
+    order: -1;
+    max-width: 30%;
     &-list {
       display: flex;
       justify-content: space-evenly;
@@ -176,6 +177,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .form-tvfoot {
@@ -204,4 +206,8 @@
   position: relative;
   top: 170px;
   right: 450px;
+}
+
+.js-hidden {
+  display: none;
 }
