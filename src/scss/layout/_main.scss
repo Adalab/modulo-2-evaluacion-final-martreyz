@@ -82,6 +82,7 @@
         background-repeat: no-repeat;
         background-position: center;
         transition: transform ease 2s;
+        outline: none;
         &:hover {
           transform: rotate(360deg);
         }
@@ -100,6 +101,7 @@
         background-repeat: no-repeat;
         background-position: center;
         transition: transform ease 2s;
+        outline: none;
         &:hover {
           transform: rotate(360deg);
         }
