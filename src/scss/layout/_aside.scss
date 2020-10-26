@@ -61,6 +61,9 @@
         cursor: pointer;
         cursor: hand;
       }
+      &:focus {
+        transform: scale(1.2);
+      }
     }
     &-clear {
       color: $color-tertiary;
@@ -86,6 +89,9 @@
         transform: scale(1.1);
         cursor: pointer;
         cursor: hand;
+      }
+      &:focus {
+        transform: scale(1.2);
       }
     }
     &-item {

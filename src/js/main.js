@@ -74,6 +74,7 @@ function renderResults() {
     serieListElement.appendChild(serieTitleElement);
     serieListElement.appendChild(serieImageElement);
     serieListElement.appendChild(serieButtonElement);
+    serieListElement.tabIndex = "5";
     serieListElement.classList.add("js-result-item");
     serieTitleElement.classList.add("main__result-item-title");
     serieListElement.classList.add("main__result-item");
@@ -143,6 +144,7 @@ function renderFavourites() {
     serieListElement.appendChild(serieTitleElement);
     serieListElement.appendChild(serieImageElement);
     serieListElement.appendChild(serieButtonElement);
+    serieListElement.tabIndex = "6";
     serieTitleElement.classList.add("aside__favourites-item-title");
     serieListElement.classList.add("js-favourite-item");
     serieListElement.classList.add("aside__favourites-item");
@@ -162,10 +164,17 @@ function renderFavourites() {
   listenFavourites();
 }
 
+function listenEnterKeyFav(event) {
+  if (event.keyCode === 13) {
+    event.currentTarget.click();
+  }
+}
+
 function listenResults() {
   const resultsListItems = document.querySelectorAll(".js-result-item");
   for (const resultsItem of resultsListItems) {
     resultsItem.addEventListener("click", addToFavourites);
+    resultsItem.addEventListener("keyup", listenEnterKeyFav);
   }
 }
 
@@ -184,6 +193,7 @@ function listenFavourites() {
   const favouriteListItems = document.querySelectorAll(".js-favourite-item");
   for (const favouritesItem of favouriteListItems) {
     favouritesItem.addEventListener("click", removeFromFavourites);
+    favouritesItem.addEventListener("keyup", listenEnterKeyFav);
   }
 }
 
@@ -209,6 +219,7 @@ function listenFavResult() {
   const favResult = document.querySelectorAll(".js-resultFav-item");
   for (const fav of favResult) {
     fav.addEventListener("click", removeFavResult);
+    fav.addEventListener("keyup", listenEnterKeyFav);
   }
 }
 

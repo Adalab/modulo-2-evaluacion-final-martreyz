@@ -80,6 +80,9 @@ body {
         cursor: pointer;
         cursor: hand;
       }
+      &:focus {
+        transform: scale(1.2);
+      }
       &--favs {
         width: 40px;
         height: 40px;
@@ -99,6 +102,9 @@ body {
           transform: rotate(360deg);
           cursor: pointer;
           cursor: hand;
+        }
+        &:focus {
+          transform: scale(1.2);
         }
       }
       &--themes {
@@ -120,6 +126,9 @@ body {
           transform: rotate(360deg);
           cursor: pointer;
           cursor: hand;
+        }
+        &:focus {
+          transform: scale(1.2);
         }
       }
     }
