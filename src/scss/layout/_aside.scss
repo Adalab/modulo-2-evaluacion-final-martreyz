@@ -1,19 +1,19 @@
 .aside {
   &__favourites {
-    background-color: #2b4655;
+    background-color: $color-dark;
     padding: 10px 30px 10px 30px;
     height: auto;
     min-height: 100vh;
     order: -1;
     width: 40%;
     position: relative;
-    border-right: 20px dotted #c4e5d4;
+    border-right: 20px dotted $color-tertiary;
     background-image: url(../images/bars-solid.svg);
     background-size: 50px;
     &-title {
       font-size: 50px;
       margin: 35px 0px auto 0px;
-      color: #c4e5d4;
+      color: $color-tertiary;
     }
     &-list {
       display: flex;
@@ -48,7 +48,7 @@
       margin: 15px 0px 0px 0px;
       border-radius: 15px;
       border: none;
-      background-color: #c4e5d4;
+      background-color: $color-tertiary;
       font-size: 30px;
       line-height: 18px;
       outline: none;
@@ -58,10 +58,10 @@
       }
     }
     &-clear {
-      color: #c4e5d4;
+      color: $color-tertiary;
       background-color: #538099;
       border-radius: 5px;
-      border: 2px solid #c4e5d4;
+      border: 2px solid $color-tertiary;
       margin: 50px 0px 0px 0px;
       height: 25px;
       width: auto;
@@ -76,8 +76,8 @@
       outline: none;
       transition: all ease 1s;
       &:hover {
-        background-color: #c4e5d4;
-        color: #2b4655;
+        background-color: $color-tertiary;
+        color: $color-dark;
         transform: scale(1.1);
       }
     }
@@ -86,9 +86,9 @@
       width: 130px;
       height: 240px;
       border-radius: 15px;
-      border: 2px solid #64938d;
-      background-color: #64938d;
-      color: #2d4d5e;
+      border: 2px solid $color-secondary;
+      background-color: $color-secondary;
+      color: $color-fav;
       padding: 10px 10px 33px 10px;
       list-style-type: none;
       text-align: center;
@@ -133,24 +133,24 @@
 }
 
 .js-body .aside__favourites {
-  background-color: #1c2022;
+  background-color: $color-hc-dark;
   background-image: none;
   &-title {
-    color: #e3f3eb;
+    color: $color-hc-light;
   }
   &-more {
-    background-color: #e3f3eb;
+    background-color: $color-hc-light;
   }
   &-clear {
-    color: #e3f3eb;
-    background-color: #3a4246;
+    color: $color-hc-light;
+    background-color: $color-hc-medium;
     &:hover {
-      background-color: #e3f3eb;
-      color: #3a4246;
+      background-color: $color-hc-light;
+      color: $color-hc-medium;
     }
   }
   &-item {
-    background-color: #9fa3a1;
-    color: #1c2022;
+    background-color: $color-hc-medLight;
+    color: $color-hc-dark;
   }
 }
