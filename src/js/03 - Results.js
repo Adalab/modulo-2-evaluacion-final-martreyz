@@ -17,7 +17,7 @@ function cleanApiData(data) {
     serieInfo.name = serie.show.name;
     serieInfo.id = serie.show.id;
     if (serie.show.image !== null) {
-      serieInfo.image = serie.show.image.original;
+      serieInfo.image = serie.show.image.original.replace("http:", "");
     } else {
       serieInfo.image = "./assets/images/image.png";
     }

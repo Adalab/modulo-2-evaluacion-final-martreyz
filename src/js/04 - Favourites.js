@@ -89,8 +89,6 @@ function removeFavResult(event) {
   let favResult = event.currentTarget;
   let favResultID = favResult.getAttribute("data");
   for (const serie of favouriteSeries) {
-    console.log(serie.id);
-    console.log(favResultID);
     if (serie.id == favResultID) {
       let favIndex = favouriteSeries.indexOf(serie);
       favouriteSeries.splice(favIndex, 1);
