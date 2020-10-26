@@ -201,3 +201,29 @@ body {
 .js-hidden {
   display: none;
 }
+
+.js-body .main__section-form {
+  background-image: none;
+  background-color: #1c2022;
+  &-label {
+    color: #f9fcfb;
+  }
+  &-button {
+    color: #f9fcfb;
+  }
+}
+
+.js-body .main__result {
+  &-title {
+    color: #1c2022;
+  }
+  &-item {
+    background-color: #1c2022;
+    color: #e3f3eb;
+  }
+}
+
+.js-body .js-selected {
+  background-color: #9fa3a1;
+  color: #1c2022;
+}

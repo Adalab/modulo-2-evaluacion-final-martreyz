@@ -11,6 +11,8 @@ const closeFavs = document.querySelector(".js-closeFav");
 const asideFavs = document.querySelector(".js-aside");
 const openFavs = document.querySelector(".js-favButton");
 const moreButton = document.querySelector(".js-moreButton");
+const themeButton = document.querySelector(".js-themeButton");
+const pageBody = document.querySelector(".body");
 
 //Declare empty arrays to manage results and favourites:
 
@@ -255,3 +257,11 @@ function showMoreFavs() {
 }
 
 moreButton.addEventListener("click", showMoreFavs);
+
+//Change webpage palette to high contrast and back:
+
+function changeTheme() {
+  pageBody.classList.toggle("js-body");
+}
+
+themeButton.addEventListener("click", changeTheme);

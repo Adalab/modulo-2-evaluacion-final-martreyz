@@ -131,3 +131,26 @@
   height: auto;
   overflow: visible;
 }
+
+.js-body .aside__favourites {
+  background-color: #1c2022;
+  background-image: none;
+  &-title {
+    color: #e3f3eb;
+  }
+  &-more {
+    background-color: #e3f3eb;
+  }
+  &-clear {
+    color: #e3f3eb;
+    background-color: #3a4246;
+    &:hover {
+      background-color: #e3f3eb;
+      color: #3a4246;
+    }
+  }
+  &-item {
+    background-color: #9fa3a1;
+    color: #1c2022;
+  }
+}
