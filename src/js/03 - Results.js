@@ -3,7 +3,7 @@
 function getSeries() {
   searchSeries = [];
   const searchInputValue = searchInput.value;
-  fetch(`http://api.tvmaze.com/search/shows?q=${searchInputValue}`)
+  fetch(`//api.tvmaze.com/search/shows?q=${searchInputValue}`)
     .then((results) => results.json())
     .then((data) => {
       cleanApiData(data);
