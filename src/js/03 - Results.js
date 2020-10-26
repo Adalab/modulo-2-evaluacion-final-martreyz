@@ -16,7 +16,6 @@ function cleanApiData(data) {
     const serieInfo = {};
     serieInfo.name = serie.show.name;
     serieInfo.id = serie.show.id;
-    serieInfo.rating = serie.show.rating.average;
     if (serie.show.image !== null) {
       serieInfo.image = serie.show.image.original;
     } else {
@@ -47,7 +46,6 @@ function renderResults() {
     serieImageElement.classList.add("main__result-item-pic");
     serieButtonElement.classList.add("main__result-item-button");
     serieListElement.id = i;
-    serieListElement.title = `Rating: ${serieInfo.rating}`;
     serieButtonElement.title = "Añadir a favoritos";
     serieListElement.setAttribute("data", searchSeries[i].id);
     serieImageElement.src = searchSeries[i].image;
