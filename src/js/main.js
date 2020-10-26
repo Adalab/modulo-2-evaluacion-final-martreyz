@@ -262,6 +262,11 @@ moreButton.addEventListener("click", showMoreFavs);
 
 function changeTheme() {
   pageBody.classList.toggle("js-body");
+  if (pageBody.classList.contains("js-body")) {
+    themeButton.title = "Cambiar a paleta original";
+  } else {
+    themeButton.title = "Cambiar a paleta de alto contraste";
+  }
 }
 
 themeButton.addEventListener("click", changeTheme);
