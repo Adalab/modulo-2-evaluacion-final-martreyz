@@ -77,6 +77,8 @@ body {
       transition: ease 1s;
       &:hover {
         transform: scale(1.2);
+        cursor: pointer;
+        cursor: hand;
       }
       &--favs {
         width: 40px;
@@ -95,6 +97,8 @@ body {
         outline: none;
         &:hover {
           transform: rotate(360deg);
+          cursor: pointer;
+          cursor: hand;
         }
       }
       &--themes {
@@ -114,6 +118,8 @@ body {
         outline: none;
         &:hover {
           transform: rotate(360deg);
+          cursor: pointer;
+          cursor: hand;
         }
       }
     }
@@ -172,6 +178,8 @@ body {
         &:hover {
           transform: scale(1.2);
           background-image: url(../images/star-solid.svg);
+          cursor: pointer;
+          cursor: hand;
         }
       }
     }
@@ -195,6 +203,8 @@ body {
   &:hover {
     transform: scale(1.2);
     background-image: url(../images/star-regular.svg);
+    cursor: pointer;
+    cursor: hand;
   }
 }
 

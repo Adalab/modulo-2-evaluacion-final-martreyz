@@ -36,8 +36,11 @@
       right: 10px;
       transition: ease 1s;
       outline: none;
+
       &:hover {
         transform: scale(1.2);
+        cursor: pointer;
+        cursor: hand;
       }
     }
     &-more {
@@ -55,6 +58,8 @@
       transition: ease 1s;
       &:hover {
         transform: scale(1.2);
+        cursor: pointer;
+        cursor: hand;
       }
     }
     &-clear {
@@ -79,6 +84,8 @@
         background-color: $color-tertiary;
         color: $color-dark;
         transform: scale(1.1);
+        cursor: pointer;
+        cursor: hand;
       }
     }
     &-item {
@@ -121,6 +128,8 @@
         &:hover {
           transform: scale(1.2);
           background-image: url(../images/star-regular.svg);
+          cursor: pointer;
+          cursor: hand;
         }
       }
     }
@@ -147,6 +156,8 @@
     &:hover {
       background-color: $color-hc-light;
       color: $color-hc-medium;
+      cursor: pointer;
+      cursor: hand;
     }
   }
   &-item {
