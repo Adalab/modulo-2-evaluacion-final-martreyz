@@ -5,6 +5,11 @@ body {
   display: flex;
   background-image: url(../images/tv.svg);
   background-size: 200px;
+  @media all and (max-width: 767px) {
+    flex-direction: column;
+    align-items: center;
+    background-image: none;
+  }
 }
 
 .main {
@@ -43,11 +48,18 @@ body {
     background-size: 100px;
     background-repeat: space;
     position: relative;
+    @media all and (max-width: 767px) {
+      background-image: none;
+    }
     &-label {
       margin: 5px;
       font-size: 60px;
       font-weight: 600;
       color: $color-tertiary;
+      @media all and (max-width: 767px) {
+        font-size: 30px;
+        text-align: center;
+      }
     }
     &-input {
       max-width: 300px;
@@ -63,6 +75,9 @@ body {
       &::placeholder {
         font-size: 20px;
       }
+      @media all and (max-width: 767px) {
+        font-size: 30px;
+      }
     }
     &-button {
       width: 100px;
@@ -75,6 +90,10 @@ body {
       padding: 5px;
       color: $color-tertiary;
       transition: ease 1s;
+      @media all and (max-width: 767px) {
+        height: 35px;
+        font-size: 22px;
+      }
       &:hover {
         transform: scale(1.2);
         cursor: pointer;
