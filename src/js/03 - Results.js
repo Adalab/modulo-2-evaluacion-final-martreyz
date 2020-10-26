@@ -29,7 +29,6 @@ searchButton.addEventListener("click", getSeries);
 
 function renderResults() {
   resultsContainer.classList.remove("js-hidden");
-  searchInput.value = "";
   resultsList.innerHTML = "";
   for (let i = 0; i < searchSeries.length; i++) {
     let serieListElement = document.createElement("li");
