@@ -100,7 +100,8 @@ body {
         cursor: hand;
       }
       &:focus {
-        transform: scale(1.2);
+        background-color: $color-tertiary;
+        color: $color-primary;
       }
       &--favs {
         width: 40px;
