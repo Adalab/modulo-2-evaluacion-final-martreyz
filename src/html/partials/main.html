@@ -1,0 +1,39 @@
+<main class="main">
+  <section class="main__section">
+    <form method="GET" class="main__section-form">
+      <label class="main__section-form-label" for="headerTitle"
+        >Buscador de series
+      </label>
+      <input
+        id="headerTitle"
+        type="text"
+        class="main__section-form-input js-inputSearch"
+        name="input"
+        placeholder="Nombre de la serie"
+      />
+
+      <input
+        title="Buscar"
+        type="button"
+        class="main__section-form-button js-button"
+        value="Buscar"
+      />
+      <nav>
+        <input
+          type="button"
+          title="Abrir favoritos"
+          class="main__section-form-button--favs js-favButton"
+        />
+      </nav>
+      <input
+        type="button"
+        title="Cambiar tema de la página"
+        class="main__section-form-button--themes js-themeButton"
+      />
+    </form>
+  </section>
+  <section class="js-hidden main__result js-resultsContainer">
+    <h2 class="main__result-title">Resultados de la búsqueda:</h2>
+    <ul class="main__result-list js-resultsList"></ul>
+  </section>
+</main>

@@ -34,6 +34,7 @@ El desarrollo del ejercicio se ha llevado a cabo utilizando el [Adalab Starter K
   - Botón de cierre de favoritos.
   - Botones de la TV: apertura de favoritos y cambio de paleta de la página.
   - El apartado de resultados se encuentra oculto hasta que realizamos una búsqueda, si después de realizarla clickamos en el input para realizar una nueva búsqueda se vuelve a ocultar.
+  - Botón de "Mostrar más" y "Mostrar menos" en la sección de favoritos para hacer la página más agradable al usuario en caso de que existan muchos elementos marcados como fav.
 
 ## Composición del código:
 
