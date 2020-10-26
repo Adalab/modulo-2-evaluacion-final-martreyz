@@ -19,7 +19,7 @@ function cleanApiData(data) {
     if (serie.show.image !== null) {
       serieInfo.image = serie.show.image.original;
     } else {
-      serieInfo.image = "../assets/images/image.png";
+      serieInfo.image = "./assets/images/image.png";
     }
     searchSeries.push(serieInfo);
   }
