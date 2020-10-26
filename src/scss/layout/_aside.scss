@@ -120,6 +120,7 @@
         transition: ease 1s;
         &:hover {
           transform: scale(1.2);
+          background-image: url(../images/star-regular.svg);
         }
       }
     }

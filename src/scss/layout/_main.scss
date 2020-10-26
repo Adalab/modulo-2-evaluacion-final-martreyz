@@ -171,6 +171,7 @@ body {
         outline: none;
         &:hover {
           transform: scale(1.2);
+          background-image: url(../images/star-solid.svg);
         }
       }
     }
@@ -191,6 +192,10 @@ body {
 
 .js-selectedButton {
   background-image: url(../images/star-solid.svg);
+  &:hover {
+    transform: scale(1.2);
+    background-image: url(../images/star-regular.svg);
+  }
 }
 
 .js-hidden {
