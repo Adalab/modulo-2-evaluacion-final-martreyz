@@ -164,7 +164,10 @@ body {
       list-style-type: none;
       text-align: center;
       position: relative;
-
+      &:focus {
+        outline: none;
+        transform: scale(1.1);
+      }
       &-pic {
         max-width: 100px;
         width: auto;
@@ -241,6 +244,10 @@ body {
   &-item {
     background-color: $color-hc-dark;
     color: $color-hc-light;
+    &:focus {
+      outline: none;
+      transform: scale(1.1);
+    }
   }
 }
 

@@ -110,6 +110,10 @@
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
+      &:focus {
+        outline: none;
+        transform: scale(1.1);
+      }
       &-title {
         margin: auto 0px;
       }
@@ -169,5 +173,9 @@
   &-item {
     background-color: $color-hc-medLight;
     color: $color-hc-dark;
+    &:focus {
+      outline: none;
+      transform: scale(1.1);
+    }
   }
 }
