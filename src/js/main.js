@@ -6,6 +6,12 @@ const resultsList = document.querySelector(".js-resultsList");
 const favourites = document.querySelector(".js-favourites");
 const resultsContainer = document.querySelector(".js-resultsContainer");
 
+const clearAllFav = document.querySelector(".js-clearFavourites");
+const closeFavs = document.querySelector(".js-closeFav");
+const asideFavs = document.querySelector(".js-aside");
+const openFavs = document.querySelector(".js-favButton");
+const moreButton = document.querySelector(".js-moreButton");
+
 //Declare empty arrays to manage results and favourites:
 
 let favouriteSeries = [];
@@ -125,6 +131,7 @@ function saveInLocalStorage() {
 
 function renderFavourites() {
   favourites.innerHTML = "";
+  asideFavs.classList.remove("js-hidden");
   for (let i = 0; i < favouriteSeries.length; i++) {
     let serieListElement = document.createElement("li");
     let serieTitleElement = document.createElement("h3");
@@ -205,8 +212,6 @@ function listenFavResult() {
 
 //Delete all favourites
 
-const clearAllFav = document.querySelector(".js-clearFavourites");
-
 function clearFavourites() {
   favouriteSeries = [];
   saveInLocalStorage();
@@ -225,11 +230,6 @@ function showBigTV() {
 searchInput.addEventListener("click", showBigTV);
 
 //Navigation:
-
-const closeFavs = document.querySelector(".js-closeFav");
-const asideFavs = document.querySelector(".js-aside");
-const openFavs = document.querySelector(".js-favButton");
-const moreButton = document.querySelector(".js-moreButton");
 
 function closeAsideFav() {
   asideFavs.classList.add("js-hidden");
