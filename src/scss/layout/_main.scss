@@ -98,13 +98,14 @@ body {
         background-position: center;
         transition: transform ease 2s;
         outline: none;
+        box-shadow: 2px 2px 3px 1px black;
         &:hover {
           transform: rotate(360deg);
           cursor: pointer;
           cursor: hand;
         }
         &:focus {
-          transform: scale(1.2);
+          transform: rotate(360deg);
         }
       }
       &--themes {
@@ -122,13 +123,14 @@ body {
         background-position: center;
         transition: transform ease 2s;
         outline: none;
+        box-shadow: 2px 2px 3px 1px black;
         &:hover {
           transform: rotate(360deg);
           cursor: pointer;
           cursor: hand;
         }
         &:focus {
-          transform: scale(1.2);
+          transform: rotate(360deg);
         }
       }
     }
