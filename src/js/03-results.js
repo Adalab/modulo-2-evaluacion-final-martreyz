@@ -16,6 +16,7 @@ function cleanApiData(data) {
     const serieInfo = {};
     serieInfo.name = serie.show.name;
     serieInfo.id = serie.show.id;
+    serieInfo.days = serie.show.schedule.days;
     if (serie.show.image !== null) {
       serieInfo.image = serie.show.image.original.replace("http:", "");
     } else {
@@ -37,6 +38,12 @@ function renderResults() {
     let serieButtonElement = document.createElement("button");
     resultsList.appendChild(serieListElement);
     serieListElement.appendChild(serieTitleElement);
+    if (searchSeries[i].days.length !== 0) {
+      let serieDaysContent = document.createTextNode(searchSeries[i].days);
+      let serieDaysElement = document.createElement("h4");
+      serieListElement.appendChild(serieDaysElement);
+      serieDaysElement.appendChild(serieDaysContent);
+    }
     serieListElement.appendChild(serieImageElement);
     serieListElement.appendChild(serieButtonElement);
     serieListElement.tabIndex = "5";

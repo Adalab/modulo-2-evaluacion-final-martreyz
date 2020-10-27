@@ -66,19 +66,24 @@ function listenResults() {
 
 //Delete series from favourites (render and localStorage replacement)
 
-function removeFromFavourites(event) {
-  let favouriteToRemove = event.currentTarget;
-  let indexFavourite = favouriteToRemove.id;
-  favouriteSeries.splice(indexFavourite, 1);
-  saveInLocalStorage();
-  renderFavourites();
-  renderResults();
+// function removeFromFavourites(event) {
+//   let favouriteToRemove = event.currentTarget;
+//   let indexFavourite = favouriteToRemove.id;
+//   favouriteSeries.splice(indexFavourite, 1);
+//   saveInLocalStorage();
+//   renderFavourites();
+//   renderResults();
+// }
+
+function writeNameInConsole(event) {
+  let favouriteToPaint = event.currentTarget.id;
+  console.log(favouriteSeries[favouriteToPaint].name);
 }
 
 function listenFavourites() {
   const favouriteListItems = document.querySelectorAll(".js-favourite-item");
   for (const favouritesItem of favouriteListItems) {
-    favouritesItem.addEventListener("click", removeFromFavourites);
+    favouritesItem.addEventListener("click", writeNameInConsole);
     favouritesItem.addEventListener("keyup", listenEnterKeyFav);
   }
 }
